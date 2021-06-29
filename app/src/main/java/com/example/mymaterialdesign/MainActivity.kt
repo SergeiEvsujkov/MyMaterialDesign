@@ -2,7 +2,7 @@ package com.example.mymaterialdesign
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mymaterialdesign.databinding.MainActivityBinding
-import com.example.mymaterialdesign.ui.main.MainFragment
+import com.example.mymaterialdesign.ui.main.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, PictureOfTheDayFragment.newInstance())
                 .commitNow()
         }
 
