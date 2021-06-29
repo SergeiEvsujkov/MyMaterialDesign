@@ -35,4 +35,9 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
             true
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

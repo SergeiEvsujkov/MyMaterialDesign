@@ -1,10 +1,9 @@
 package com.example.mymaterialdesign.ui.main
 
 import android.annotation.SuppressLint
-import android.icu.text.DateFormat.YEAR_ABBR_MONTH
-import android.icu.text.DateFormat.getPatternInstance
+
 import android.os.Build
-import android.text.format.DateFormat
+
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,7 +16,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*

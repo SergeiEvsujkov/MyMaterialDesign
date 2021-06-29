@@ -24,6 +24,7 @@ import com.example.mymaterialdesign.ui.picture.BottomNavigationDrawerFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.main_activity.*
 
@@ -47,12 +48,15 @@ class PictureOfTheDayFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
+
+            viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
+
 
         input_layout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -64,6 +68,7 @@ class PictureOfTheDayFragment : Fragment() {
         setBottomAppBar(view)
 
         chipGroup.setOnCheckedChangeListener { chipGroup, position ->
+
             chipGroup.findViewById<Chip>(position)?.let {
                 when (position) {
                     1 -> {
@@ -82,10 +87,11 @@ class PictureOfTheDayFragment : Fragment() {
                         viewModel.isYesterday = false
                         viewModel.isToday = true
                     }
-
                 }
             }
-            viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
+                viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
+
+
         }
     }
 
