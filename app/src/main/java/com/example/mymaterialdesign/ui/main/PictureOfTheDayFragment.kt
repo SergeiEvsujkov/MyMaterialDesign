@@ -1,6 +1,7 @@
 package com.example.mymaterialdesign.ui.main
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -52,10 +53,11 @@ class PictureOfTheDayFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("ResourceType", "ShowToast")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-            viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
+        viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
 
 
         input_layout.setEndIconOnClickListener {
@@ -64,6 +66,13 @@ class PictureOfTheDayFragment : Fragment() {
             })
         }
 
+        if (viewModel.isYesterday) {
+            chipGroup.check(R.id.yesterday)
+        } else
+        if (viewModel.isYesterdayBefore) {
+            chipGroup.check(R.id.yesterday_before)
+        } else { chipGroup.check(R.id.today)}
+
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
         setBottomAppBar(view)
 
@@ -71,27 +80,24 @@ class PictureOfTheDayFragment : Fragment() {
 
             chipGroup.findViewById<Chip>(position)?.let {
                 when (position) {
-                    1 -> {
+                    R.id.yesterday_before -> {
                         viewModel.isYesterdayBefore = true
                         viewModel.isYesterday = false
                         viewModel.isToday = false
-
                     }
-                    2 -> {
+                    R.id.yesterday -> {
                         viewModel.isYesterdayBefore = false
                         viewModel.isYesterday = true
                         viewModel.isToday = false
                     }
-                    3 -> {
+                    R.id.today -> {
                         viewModel.isYesterdayBefore = false
                         viewModel.isYesterday = false
                         viewModel.isToday = true
                     }
                 }
             }
-                viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
-
-
+            viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
         }
     }
 

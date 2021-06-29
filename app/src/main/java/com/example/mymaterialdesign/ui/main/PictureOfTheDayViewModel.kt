@@ -56,7 +56,8 @@ class PictureOfTheDayViewModel(
             val dateNow = Date()
             if (isYesterday) {
                 dateNow.time = dateNow.time - 86400000
-            } else if (isYesterdayBefore) {
+            }
+            if (isYesterdayBefore) {
                 dateNow.time = dateNow.time - 172800000
             }
             val formatter = SimpleDateFormat("yyyy-MM-dd")
