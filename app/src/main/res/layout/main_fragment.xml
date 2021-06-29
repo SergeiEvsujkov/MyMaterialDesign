@@ -76,6 +76,7 @@
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="@dimen/chips_day"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:text="@string/today" />
         </com.google.android.material.chip.ChipGroup>
 

@@ -33,6 +33,10 @@ class PictureOfTheDayViewModel(
         return liveDataForViewToObserve
     }
 
+    var isYesterdayBefore: Boolean = false
+    var isYesterday: Boolean = false
+    var isToday: Boolean = true
+
 
     @SuppressLint("SimpleDateFormat")
     private fun sendServerRequest() {
@@ -40,15 +44,27 @@ class PictureOfTheDayViewModel(
         val apiKey: String = BuildConfig.NASA_API_KEY
 
         val date: String = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val current = LocalDateTime.now()
+            var current = LocalDateTime.now()
+
+            if (isYesterday) {
+                current = current.minusDays(1)
+            } else if (isYesterdayBefore) {
+                current = current.minusDays(2)
+            }
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             current.format(formatter)
 
         } else {
             val dateNow = Date()
+            if (isYesterday) {
+                dateNow.time = dateNow.time - 86400000
+            } else if (isYesterdayBefore) {
+                dateNow.time = dateNow.time - 172800000
+            }
             val formatter = SimpleDateFormat("yyyy-MM-dd")
             formatter.format(dateNow)
         }
+
 // Немного запарился с датой, вывел в лог :))
         Log.d("dateSend", date)
 

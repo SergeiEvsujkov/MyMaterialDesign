@@ -65,8 +65,27 @@ class PictureOfTheDayFragment : Fragment() {
 
         chipGroup.setOnCheckedChangeListener { chipGroup, position ->
             chipGroup.findViewById<Chip>(position)?.let {
-                Toast.makeText(context, "Выбран ${it.text}", Toast.LENGTH_SHORT).show()
+                when (position) {
+                    1 -> {
+                        viewModel.isYesterdayBefore = true
+                        viewModel.isYesterday = false
+                        viewModel.isToday = false
+
+                    }
+                    2 -> {
+                        viewModel.isYesterdayBefore = false
+                        viewModel.isYesterday = true
+                        viewModel.isToday = false
+                    }
+                    3 -> {
+                        viewModel.isYesterdayBefore = false
+                        viewModel.isYesterday = false
+                        viewModel.isToday = true
+                    }
+
+                }
             }
+            viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
         }
     }
 
@@ -94,7 +113,7 @@ class PictureOfTheDayFragment : Fragment() {
             }
             is PictureOfTheDayData.Error -> {
                 //showError(data.error.message)
-               // toast(data.error.message)
+                // toast(data.error.message)
             }
         }
     }
@@ -109,10 +128,10 @@ class PictureOfTheDayFragment : Fragment() {
                 when (newState) {
 //                    BottomSheetBehavior.STATE_DRAGGING -> TODO("not implemented")
 //                    BottomSheetBehavior.STATE_COLLAPSED -> TODO("not implemented")
- //                   BottomSheetBehavior.STATE_EXPANDED -> TODO("not implemented")
- //                   BottomSheetBehavior.STATE_HALF_EXPANDED -> TODO("not implemented")
- //                   BottomSheetBehavior.STATE_HIDDEN -> TODO("not implemented")
-  //                  BottomSheetBehavior.STATE_SETTLING -> TODO("not implemented")
+                    //                   BottomSheetBehavior.STATE_EXPANDED -> TODO("not implemented")
+                    //                   BottomSheetBehavior.STATE_HALF_EXPANDED -> TODO("not implemented")
+                    //                   BottomSheetBehavior.STATE_HIDDEN -> TODO("not implemented")
+                    //                  BottomSheetBehavior.STATE_SETTLING -> TODO("not implemented")
                 }
             }
 
