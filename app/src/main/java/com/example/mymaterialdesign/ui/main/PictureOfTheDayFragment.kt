@@ -2,34 +2,30 @@ package com.example.mymaterialdesign.ui.main
 
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.View.*
-import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import com.example.mymaterialdesign.R
-import com.example.mymaterialdesign.databinding.MainFragmentBinding
-import com.example.mymaterialdesign.ui.picture.PictureOfTheDayData
-
 import android.view.*
+import android.view.View.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import coil.api.load
 import com.example.mymaterialdesign.MainActivity
+import com.example.mymaterialdesign.R
+import com.example.mymaterialdesign.databinding.MainFragmentBinding
 import com.example.mymaterialdesign.ui.picture.BottomNavigationDrawerFragment
+import com.example.mymaterialdesign.ui.picture.PictureOfTheDayData
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.main_activity.*
-
-
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class PictureOfTheDayFragment : Fragment() {
@@ -69,9 +65,11 @@ class PictureOfTheDayFragment : Fragment() {
         if (viewModel.isYesterday) {
             chipGroup.check(R.id.yesterday)
         } else
-        if (viewModel.isYesterdayBefore) {
-            chipGroup.check(R.id.yesterday_before)
-        } else { chipGroup.check(R.id.today)}
+            if (viewModel.isYesterdayBefore) {
+                chipGroup.check(R.id.yesterday_before)
+            } else {
+                chipGroup.check(R.id.today)
+            }
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
         setBottomAppBar(view)
@@ -118,6 +116,34 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                     bottom_sheet_description_header.text = serverResponseData.title
                     bottom_sheet_description.text = serverResponseData.explanation
+                    if (serverResponseData.mediaType.equals("video")) {
+
+
+                        val builder = AlertDialog.Builder(
+                            requireContext()
+                        )
+
+                        builder.setTitle("Видео откроется в другом приложении")
+                            .setCancelable(true)
+                            .setNegativeButton(
+                                R.string.no,
+                                DialogInterface.OnClickListener { dialog, _ ->
+                                    dialog.dismiss()
+                                }
+                            )
+                            .setPositiveButton(
+                                R.string.yes
+                            ) { _, _ ->
+                                startActivity(Intent(Intent.ACTION_VIEW).apply {
+                                    this.data = Uri.parse(serverResponseData.url)
+                                })
+                            }
+
+                        val alert = builder.create()
+                        alert.show()
+
+
+                    }
                 }
             }
             is PictureOfTheDayData.Loading -> {
