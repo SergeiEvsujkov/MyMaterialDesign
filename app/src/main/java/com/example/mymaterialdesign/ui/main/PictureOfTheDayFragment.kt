@@ -116,6 +116,7 @@ class PictureOfTheDayFragment : Fragment() {
                     }
                     bottom_sheet_description_header.text = serverResponseData.title
                     bottom_sheet_description.text = serverResponseData.explanation
+
                     if (serverResponseData.mediaType.equals("video")) {
 
 
@@ -126,11 +127,10 @@ class PictureOfTheDayFragment : Fragment() {
                         builder.setTitle("Видео откроется в другом приложении")
                             .setCancelable(true)
                             .setNegativeButton(
-                                R.string.no,
-                                DialogInterface.OnClickListener { dialog, _ ->
-                                    dialog.dismiss()
-                                }
-                            )
+                                R.string.no
+                            ) { dialog, _ ->
+                                dialog.dismiss()
+                            }
                             .setPositiveButton(
                                 R.string.yes
                             ) { _, _ ->
@@ -141,8 +141,6 @@ class PictureOfTheDayFragment : Fragment() {
 
                         val alert = builder.create()
                         alert.show()
-
-
                     }
                 }
             }
