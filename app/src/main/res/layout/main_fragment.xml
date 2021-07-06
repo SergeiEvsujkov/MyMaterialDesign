@@ -61,21 +61,21 @@
             tools:layout_editor_absoluteX="10dp">
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+
                 android:id="@+id/yesterday_before"
                 android:layout_width="@dimen/chips_day"
                 android:layout_height="wrap_content"
                 android:text="@string/before_yesterday" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+
                 android:id="@+id/yesterday"
                 android:layout_width="@dimen/chips_day"
                 android:layout_height="wrap_content"
                 android:text="@string/yesterday" />
 
             <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+
                 android:id="@+id/today"
                 android:layout_width="@dimen/chips_day"
                 android:layout_height="wrap_content"
@@ -94,7 +94,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/colorPrimary"
         app:fabAlignmentMode="center"
         app:hideOnScroll="true"
         app:layout_scrollFlags="scroll|enterAlways"
@@ -104,10 +103,10 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorAccent"
         app:layout_anchor="@id/bottom_app_bar"
         app:srcCompat="@drawable/ic_plus_fab"
-        app:tint="#FFFFFF" />
+        app:tint="#FFFFFF"
+         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

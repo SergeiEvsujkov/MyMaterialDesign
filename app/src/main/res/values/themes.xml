@@ -6,6 +6,48 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="chipStyle">@style/MyChipStyle</item>
+        <item name="bottomAppBarStyle">@style/MyBottomAppBarStyle</item>
+        <item name="floatingActionButtonStyle">@style/MyFloatingActionButtonStyle</item>
+    </style>
+
+    <style name="AppThemeTwo" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="chipStyle">@style/MyChipStyleTwo</item>
+        <item name="bottomAppBarStyle">@style/MyBottomAppBarStyleTwo</item>
+        <item name="floatingActionButtonStyle">@style/MyFloatingActionButtonStyleTwo</item>
+    </style>
+
+    <style name="MyChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">#A1D3EA</item>
+        <item name="rippleColor">#4CAF50</item>
+    </style>
+
+    <style name="MyBottomAppBarStyle" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="backgroundTint">#03A9F4</item>
+
+    </style>
+
+    <style name="MyFloatingActionButtonStyle" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">#3F51B5</item>
+    </style>
+
+    <style name="MyChipStyleTwo" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">#9BECB6</item>
+        <item name="rippleColor">#4CAF50</item>
+    </style>
+
+    <style name="MyBottomAppBarStyleTwo" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="backgroundTint">#A5F6A8</item>
+
+    </style>
+
+    <style name="MyFloatingActionButtonStyleTwo" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">#4CAF50</item>
     </style>
 
 </resources>
