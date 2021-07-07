@@ -46,10 +46,6 @@ class MainActivity : AppCompatActivity() {
         @StyleRes
         var theme: Int = R.style.AppTheme
     }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        recreate()
-    }
+    
 
 }

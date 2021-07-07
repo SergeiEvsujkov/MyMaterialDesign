@@ -10,7 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.app.ActivityCompat.recreate
 import androidx.lifecycle.ViewModelProvider
 import com.example.mymaterialdesign.MainActivity
 import com.example.mymaterialdesign.R
@@ -54,6 +56,13 @@ class ThemeFragment : Fragment() {
                 }
             }
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                parentFragmentManager.popBackStack()
+                requireActivity().recreate()
+            }
+        })
     }
 
     companion object {
