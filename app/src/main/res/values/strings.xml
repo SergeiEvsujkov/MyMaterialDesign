@@ -39,4 +39,9 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="green_theme">Зелёная тема</string>
     <string name="blue_theme">Синяя тема</string>
+    <string name="photo_earth">photo_earth</string>
+    <string name="default_address">default</string>
+    <string name="button_search_map">Search</string>
+    <string name="marker_start">Maркер</string>
+    <string name="photo_earth_from_air">Фото Земли из космоса</string>
 </resources>

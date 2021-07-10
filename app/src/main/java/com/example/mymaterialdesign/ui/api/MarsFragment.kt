@@ -15,4 +15,8 @@ class MarsFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_mars, container, false)
     }
+    companion object {
+        fun newInstance() =
+            MarsFragment()
+    }
 }
