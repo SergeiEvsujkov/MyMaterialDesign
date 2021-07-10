@@ -46,6 +46,6 @@ class MainActivity : AppCompatActivity() {
         @StyleRes
         var theme: Int = R.style.AppTheme
     }
-    
+
 
 }

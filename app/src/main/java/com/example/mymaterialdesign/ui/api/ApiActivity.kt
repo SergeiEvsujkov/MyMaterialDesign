@@ -1,12 +1,9 @@
 package com.example.mymaterialdesign.ui.api
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentActivity
-
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mymaterialdesign.R
-import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_api.*
 
 class ApiActivity : AppCompatActivity() {

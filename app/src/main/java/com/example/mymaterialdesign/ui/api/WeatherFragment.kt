@@ -15,6 +15,7 @@ class WeatherFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_weather, container, false)
     }
+
     companion object {
         fun newInstance() =
             WeatherFragment()

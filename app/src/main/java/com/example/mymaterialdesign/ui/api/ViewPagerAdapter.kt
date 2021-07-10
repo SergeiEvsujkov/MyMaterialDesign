@@ -1,22 +1,9 @@
 package com.example.mymaterialdesign.ui.api
 
 
-
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-
-
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.mymaterialdesign.R
-import kotlinx.android.synthetic.main.item_page.*
-
-
 
 
 private const val EARTH_FRAGMENT = 0

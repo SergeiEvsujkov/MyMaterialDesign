@@ -1,27 +1,16 @@
 package com.example.mymaterialdesign.ui.main
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.content.res.Resources
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.app.ActivityCompat.recreate
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import com.example.mymaterialdesign.MainActivity
 import com.example.mymaterialdesign.R
 import com.example.mymaterialdesign.databinding.FragmentThemeBinding
-import com.example.mymaterialdesign.databinding.MainFragmentBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.fragment_theme.*
-import kotlinx.android.synthetic.main.main_fragment.*
 
 
 class ThemeFragment : Fragment() {
@@ -57,12 +46,14 @@ class ThemeFragment : Fragment() {
             }
         }
 
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                parentFragmentManager.popBackStack()
-                requireActivity().recreate()
-            }
-        })
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    parentFragmentManager.popBackStack()
+                    requireActivity().recreate()
+                }
+            })
     }
 
     companion object {
