@@ -20,6 +20,7 @@ import coil.api.load
 import com.example.mymaterialdesign.MainActivity
 import com.example.mymaterialdesign.R
 import com.example.mymaterialdesign.databinding.MainFragmentBinding
+import com.example.mymaterialdesign.ui.api.ApiActivity
 import com.example.mymaterialdesign.ui.picture.BottomNavigationDrawerFragment
 import com.example.mymaterialdesign.ui.picture.PictureOfTheDayData
 import com.google.android.material.bottomappbar.BottomAppBar
@@ -63,6 +64,10 @@ class PictureOfTheDayFragment : Fragment() {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
             })
         }
+
+
+
+
 
         if (viewModel.isYesterday) {
             chipGroup.check(R.id.yesterday)
@@ -186,7 +191,15 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.app_bar_fav -> Toast.makeText(context, "Favourite", Toast.LENGTH_SHORT).show()
+            R.id.app_bar_telescope -> activity?.let {
+                startActivity(
+                    Intent(
+                        it,
+                        ApiActivity::class.java
+                    )
+                )
+            }
+            R.id.app_bar_fav -> Toast.makeText(context, "Favorite", Toast.LENGTH_SHORT).show()
             R.id.app_bar_search -> Toast.makeText(context, "Search", Toast.LENGTH_SHORT).show()
 
 
