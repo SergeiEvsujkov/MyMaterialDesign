@@ -17,6 +17,7 @@ import coil.api.load
 import com.example.mymaterialdesign.MainActivity
 import com.example.mymaterialdesign.R
 import com.example.mymaterialdesign.databinding.MainFragmentBinding
+import com.example.mymaterialdesign.databinding.MainFragmentStartBinding
 import com.example.mymaterialdesign.ui.api.ApiActivity
 import com.example.mymaterialdesign.ui.picture.BottomNavigationDrawerFragment
 import com.example.mymaterialdesign.ui.picture.PictureOfTheDayData
@@ -30,7 +31,7 @@ import kotlinx.android.synthetic.main.main_fragment.*
 
 class PictureOfTheDayFragment : Fragment() {
 
-    private var _binding: MainFragmentBinding? = null
+    private var _binding: MainFragmentStartBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: PictureOfTheDayViewModel by lazy {
@@ -44,7 +45,7 @@ class PictureOfTheDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = MainFragmentStartBinding.inflate(inflater, container, false)
 
         return binding.root
     }
