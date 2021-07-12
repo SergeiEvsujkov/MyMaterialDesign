@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.ThemeFragment">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:checkedButton="@+id/radio_button_1"
+        tools:ignore="UselessParent">
+
+        <RadioButton
+            android:id="@+id/radio_button_green"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/green_theme" />
+
+        <RadioButton
+            android:id="@+id/radio_button_blue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/blue_theme" />
+
+    </RadioGroup>
+
+</FrameLayout>
