@@ -16,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider
 import coil.api.load
 import com.example.mymaterialdesign.MainActivity
 import com.example.mymaterialdesign.R
-import com.example.mymaterialdesign.databinding.MainFragmentBinding
 import com.example.mymaterialdesign.databinding.MainFragmentStartBinding
 import com.example.mymaterialdesign.ui.api.ApiActivity
 import com.example.mymaterialdesign.ui.picture.BottomNavigationDrawerFragment
@@ -68,18 +67,18 @@ class PictureOfTheDayFragment : Fragment() {
 
 
         if (viewModel.isYesterday) {
-            chipGroup.check(R.id.yesterday)
+            chip_group.check(R.id.yesterday)
         } else
             if (viewModel.isYesterdayBefore) {
-                chipGroup.check(R.id.yesterday_before)
+                chip_group.check(R.id.yesterday_before)
             } else {
-                chipGroup.check(R.id.today)
+                chip_group.check(R.id.today)
             }
 
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
         setBottomAppBar(view)
 
-        chipGroup.setOnCheckedChangeListener { chipGroup, position ->
+        chip_group.setOnCheckedChangeListener { chipGroup, position ->
 
             chipGroup.findViewById<Chip>(position)?.let {
                 when (position) {

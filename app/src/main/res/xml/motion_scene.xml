@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MotionScene xmlns:motion="http://schemas.android.com/apk/res-auto">
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
         motion:constraintSetEnd="@layout/main_fragment"
         motion:constraintSetStart="@layout/main_fragment_start"
         motion:duration="2000">
 
-        <OnSwipe motion:targetId="@id/wiki_button"
-            motion:dragDirection="dragLeft"/>
+        <OnSwipe
+            motion:dragDirection="dragLeft"
+            motion:targetId="@id/wiki_button" />
     </Transition>
 
-    <Transition
-        motion:constraintSetEnd="@layout/main_fragment_start"
-        motion:constraintSetStart="@layout/main_fragment"
-        motion:duration="2000">
+    <Transition>
 
-        <OnSwipe motion:targetId="@id/input_layout"
-            motion:dragDirection="dragRight"/>
+        <OnSwipe motion:touchAnchorId="@id/input_layout" />
     </Transition>
 
     <Transition
         motion:constraintSetEnd="@layout/main_fragment"
         motion:constraintSetStart="@layout/main_fragment_start"
-        motion:duration="2000">
+        motion:duration="200">
 
-        <OnSwipe motion:targetId="@id/input_layout"
-            motion:dragDirection="dragLeft"/>
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@id/image_view" />
     </Transition>
+
+    <Transition
+        motion:constraintSetStart="@layout/main_fragment_start"
+        motion:constraintSetEnd="@layout/main_fragment"
+        motion:duration="200">
+
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@id/image_view" />
+
+    </Transition>
+
+
+
 </MotionScene>
