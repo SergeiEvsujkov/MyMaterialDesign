@@ -7,12 +7,17 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.view.View.*
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.ChangeBounds
+import androidx.transition.ChangeImageTransform
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import coil.api.load
 import com.example.mymaterialdesign.MainActivity
 import com.example.mymaterialdesign.R
@@ -29,6 +34,8 @@ import kotlinx.android.synthetic.main.main_activity.*
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class PictureOfTheDayFragment : Fragment() {
+
+    private var isExpanded = false
 
     private var _binding: MainFragmentStartBinding? = null
     private val binding get() = _binding!!
@@ -62,6 +69,22 @@ class PictureOfTheDayFragment : Fragment() {
             })
         }
 
+        image_view.setOnClickListener {
+            isExpanded = !isExpanded
+            TransitionManager.beginDelayedTransition(
+                container_view, TransitionSet()
+                    .addTransition(ChangeBounds())
+                    .addTransition(ChangeImageTransform())
+            )
+
+            val params: ViewGroup.LayoutParams = image_view.layoutParams
+            params.width =
+                if (isExpanded)  ViewGroup.LayoutParams.MATCH_PARENT else R.dimen.image
+            image_view.layoutParams = params
+
+            image_view.scaleType =
+                if (isExpanded) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+        }
 
 
 
