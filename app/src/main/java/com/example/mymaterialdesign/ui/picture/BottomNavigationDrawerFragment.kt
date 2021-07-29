@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.mymaterialdesign.MainActivity
 import com.example.mymaterialdesign.R
+import com.example.mymaterialdesign.RecyclerActivity
 import com.example.mymaterialdesign.databinding.BottomNavigationLayoutBinding
 import com.example.mymaterialdesign.ui.AnimationsActivity
 
@@ -41,7 +42,11 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
                     Toast.makeText(context, "1", Toast.LENGTH_SHORT).show()
                 }
-                R.id.navigation_two -> Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
+                R.id.navigation_two -> {
+                    startActivity(Intent(requireContext(), RecyclerActivity::class.java))
+                    Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
+
+                }
             }
             true
         }
