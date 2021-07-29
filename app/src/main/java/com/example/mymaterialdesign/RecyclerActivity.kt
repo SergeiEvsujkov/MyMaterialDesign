@@ -3,7 +3,9 @@ package com.example.mymaterialdesign
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.mymaterialdesign.ui.main.Data
+import com.example.mymaterialdesign.ui.main.ItemTouchHelperCallback
 import com.example.mymaterialdesign.ui.main.RecyclerActivityAdapter
 import kotlinx.android.synthetic.main.activity_recycler.*
 
@@ -41,6 +43,9 @@ class RecyclerActivity : AppCompatActivity() {
 
         recyclerView.adapter = adapter
         recyclerActivityFAB.setOnClickListener { adapter.appendItem() }
+
+        ItemTouchHelper(ItemTouchHelperCallback(adapter))
+            .attachToRecyclerView(recyclerView)
 
     }
 }
