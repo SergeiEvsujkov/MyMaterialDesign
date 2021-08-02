@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var themePreference: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
+
         themePreference = getSharedPreferences(THEME_PREFERENCE, Context.MODE_PRIVATE);
         if (themePreference.contains(THEME_PREFERENCE)) {
             ThemeHolder.theme = (themePreference.getInt(THEME_PREFERENCE, R.style.AppTheme));

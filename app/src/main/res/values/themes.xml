@@ -50,4 +50,8 @@
         <item name="backgroundTint">#4CAF50</item>
     </style>
 
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@drawable/splash_background_drawable</item>
+    </style>
+
 </resources>
