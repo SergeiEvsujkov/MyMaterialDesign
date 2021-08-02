@@ -3,6 +3,7 @@ package com.example.mymaterialdesign.ui.main
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
@@ -59,7 +60,8 @@ class PictureOfTheDayFragment : Fragment() {
     @SuppressLint("ResourceType", "ShowToast")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        activity?.let {
+            bottom_sheet_description.typeface = Typeface.createFromAsset(it.assets, "AndroidInsomniaRegularRLxW.ttf")}
         viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
 
 
