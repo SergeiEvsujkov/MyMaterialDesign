@@ -3,9 +3,13 @@ package com.example.mymaterialdesign.ui.main
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.view.View.*
 import android.widget.ImageView
@@ -38,6 +42,8 @@ class PictureOfTheDayFragment : Fragment() {
 
     private var isExpanded = false
 
+    private var isRed: Boolean = false
+
     private var _binding: MainFragmentStartBinding? = null
     private val binding get() = _binding!!
 
@@ -61,7 +67,9 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity?.let {
-            bottom_sheet_description.typeface = Typeface.createFromAsset(it.assets, "AndroidInsomniaRegularRLxW.ttf")}
+            bottom_sheet_description.typeface =
+                Typeface.createFromAsset(it.assets, "AndroidInsomniaRegularRLxW.ttf")
+        }
         viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
 
 
@@ -81,7 +89,7 @@ class PictureOfTheDayFragment : Fragment() {
 
             val params: ViewGroup.LayoutParams = image_view.layoutParams
             params.width =
-                if (isExpanded)  ViewGroup.LayoutParams.MATCH_PARENT else R.dimen.image
+                if (isExpanded) ViewGroup.LayoutParams.MATCH_PARENT else R.dimen.image
             image_view.layoutParams = params
 
             image_view.scaleType =
@@ -126,6 +134,41 @@ class PictureOfTheDayFragment : Fragment() {
             }
             viewModel.getData().observe(viewLifecycleOwner, { renderData(it) })
         }
+        bottom_sheet_description.setOnClickListener {
+            spanTextO()
+        }
+
+    }
+
+    private fun spanTextO() {
+        val spannable = SpannableStringBuilder(bottom_sheet_description.text)
+
+        if (!isRed) {
+            spannable.setSpan(
+                ForegroundColorSpan(Color.RED),
+                0, spannable.length / 2,
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                (spannable.length / 2), spannable.length,
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            isRed = true
+        } else {
+            spannable.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                0, spannable.length / 2,
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            spannable.setSpan(
+                ForegroundColorSpan(Color.RED),
+                spannable.length / 2, spannable.length,
+                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+            )
+            isRed = false
+        }
+        bottom_sheet_description.text = spannable
     }
 
     private fun renderData(data: PictureOfTheDayData) {
