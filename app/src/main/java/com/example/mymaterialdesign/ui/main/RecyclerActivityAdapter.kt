@@ -67,128 +67,32 @@ class RecyclerActivityAdapter(
 
     private fun generateItem(): Pair<Data, Boolean> {
         var count = 0
+        val dataArr = arrayListOf(
+            Pair(Data("Овен", "21 марта –\n20 апреля", R.drawable.ram), false),
+            Pair(Data("Телец", "21 апреля –\n20 мая", R.drawable.bull), false),
+            Pair(Data("Близнецы", "22 мая –\n21 июня", R.drawable.twins), false),
+            Pair(Data("Рак", "22 июня –\n22 июля", R.drawable.crab), false),
+            Pair(Data("Лев", "23 июля –\n21 августа", R.drawable.lion), false),
+            Pair(Data("Дева", "22 августа –\n23 сентября", R.drawable.maiden), false),
+            Pair(Data("Весы", "24 сентября –\n23 октября", R.drawable.scales), false),
+            Pair(Data("Скорпион", "24 октября –\n22 ноября", R.drawable.scorpion), false),
+            Pair(Data("Стрелец", "23 ноября –\n22 декабря", R.drawable.archer), false),
+            Pair(Data("Козерог", "23 декабря –\n20 января", R.drawable.goat), false),
+            Pair(Data("Водолей", "21 января –\n19 февраля", R.drawable.water), false),
+            Pair(Data("Рыбы", "20 февраля –\n20 марта", R.drawable.fishes), false)
+        )
+        for (j in 0 until dataArr.size) {
+            for (i in 0 until data.size) {
+                if (data[i].first.someText == dataArr[j].first.someText) {
+                    count = 1
+                }
 
-        for (i in 0 until data.size) {
-            if (data[i].first.someText == "Овен") {
-                count = 1
             }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Овен", "21 марта –\n20 апреля", R.drawable.ram), false)
-        }
-
-        count = 0
-
-        for (i in 0 until data.size) {
-            if (data[i].first.someText == "Телец") {
-                count = 1
+            if (count == 0) {
+                return dataArr[j]
             }
-
+             count = 0
         }
-        if (count == 0) {
-            return Pair(Data("Телец", "21 апреля –\n20 мая", R.drawable.bull), false)
-        }
-        count = 0
-
-        for (i in 0 until data.size) {
-            if (data[i].first.someText == "Близнецы") {
-                count = 1
-            }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Близнецы", "22 мая –\n21 июня", R.drawable.twins), false)
-        }
-        count = 0
-
-        for (i in 1 until data.size) {
-            if (data[i].first.someText == "Рак") {
-                count = 1
-            }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Рак", "22 июня –\n22 июля", R.drawable.crab), false)
-        }
-        count = 0
-
-        for (i in 1 until data.size) {
-            if (data[i].first.someText == "Лев") {
-                count = 1
-            }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Лев", "23 июля –\n21 августа", R.drawable.lion), false)
-        }
-        count = 0
-
-        for (i in 1 until data.size) {
-            if (data[i].first.someText == "Дева") {
-                count = 1
-            }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Дева", "22 августа –\n23 сентября", R.drawable.maiden), false)
-        }
-        count = 0
-
-        for (i in 1 until data.size) {
-            if (data[i].first.someText == "Весы") {
-                count = 1
-            }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Весы", "24 сентября –\n23 октября", R.drawable.scales), false)
-        }
-        count = 0
-
-        for (i in 1 until data.size) {
-            if (data[i].first.someText == "Скорпион") {
-                count = 1
-            }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Скорпион", "24 октября –\n22 ноября", R.drawable.scorpion), false)
-        }
-        count = 0
-
-        for (i in 1 until data.size) {
-            if (data[i].first.someText == "Стрелец") {
-                count = 1
-            }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Стрелец", "23 ноября –\n22 декабря", R.drawable.archer), false)
-        }
-        count = 0
-
-        for (i in 1 until data.size) {
-            if (data[i].first.someText == "Козерог") {
-                count = 1
-            }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Козерог", "23 декабря –\n20 января", R.drawable.goat), false)
-        }
-        count = 0
-
-        for (i in 1 until data.size) {
-            if (data[i].first.someText == "Водолей") {
-                count = 1
-            }
-
-        }
-        if (count == 0) {
-            return Pair(Data("Водолей", "21 января –\n19 февраля", R.drawable.water), false)
-        }
-
         return Pair(Data("Рыбы", "20 февраля –\n20 марта", R.drawable.fishes), false)
 
     }
